@@ -8,7 +8,25 @@ ExpressionEngine is a content management system written by Ellislab in PHP. It i
 
 h3. Technical Requirements
 
-h3. General System Architecture (Channels & Entries)
+h4. As of ExpressionEngine version 2.5.3
+
+* PHP version 5.1.6 or newer
+* MySQL version 4.1 or newer
+* 32M memory allocated to PHP
+* Your hosting account must have the following minimum MySQL grant privileges for database tables:
+** SELECT
+** INSERT
+** UPDATE
+** DELETE
+** CREATE
+** INDEX
+** ALTER
+** DROP
+* 10 MB of free space on your server for the ExpressionEngine software and modules.
+* 2 MB of Database space. Note: The database will increase in size as you add new content.
+* The GD (or GD 2) library compiled into PHP.
+
+h3. General System Architecture
 
 h4. Channels
 
@@ -23,5 +41,38 @@ h3. Template Engine
 h3. File Handling
 
 h3. Add-Ons
+
+ExpressionEngine add-ons come in five flavors:
+
+* Modules - Modules can be extremely extensive in functionality, such as an online store, or simple. They can contain all of the below listed types of add-ons within their package. They typically create new functionality both within the Control Panel and on the customer-facing portion of the site.
+* Extensions - Extensions can also be extremely extensive or very simple, and create new functionality within the Control Panel.
+* Fieldtypes - Developers can create new types of fields that are installable. For instance, Matrix is a fieldtype that adds a very flexible data table-type field to entries. As a developer creates a custom field group for a channel, s/he can choose any installed fieldtype to be a part of it, to capture and store the type of data that is most appropriate for the content being entered.
+* Plugins - Plugins can be extensive, but are generally a simple add-on that manupulates content on the customer-facing portion of the site.
+* Accessories - Accessories manipulate the Control Panel to change its look and feel or functionality.
+
+h4. Bundled Add-Ons
+
+ExpressionEngine comes bundled with the following add-ons. They aren't necessarily installed by default, but are part of the core installation and can be installed through the Control Panel.
+
+* Discussion Forum
+* Moblog
+* Wiki
+* Channel
+* Member Manager
+* Mailing List
+* Simple Commerce
+* Blogger/MetaWeblog API
+* Recently Updated Sites
+* RSS
+* Email
+* Search
+* Referrer
+* Blacklist/Whitelist
+* Statistics
+* Query
+
+h4. Third-Party Add-Ons
+
+One of the most useful features of ExpressionEngine is its plugin architecture. By downloading an add-on created by another developer, or building one of his/her own, a developer can add new functionality to ExpressionEngine that is not present in the core product. There are over 1,000 add-ons catalogued and available for download at http://devot-ee.com. Most add-ons are free, and some are commercial in nature. The add-on community for ExpressionEngine is one of its greatest assets. New add-ons are built and added to Devot-ee weekly.
 
 h3. Member Management
