@@ -1,5 +1,6 @@
 
 h2. Web Publishing
+
 ExpressionEngine’s publishing features are broad, comprehensive, and highly flexible.
 
 * Multiple Channels/Site Sections
@@ -28,6 +29,7 @@ ExpressionEngine’s publishing features are broad, comprehensive, and highly fl
 * Bookmarklet
 
 h2. Commenting
+
 ExpressionEngine’s user commenting system lets your community participate in the discussion.
 
 * User Commenting System
@@ -37,6 +39,7 @@ ExpressionEngine’s user commenting system lets your community participate in t
 * Comment Pagination
 
 h2. Typography
+
 ExpressionEngine has sophisticated typography tools—a writer’s dream!
 
 * Auto Typographic Formatting
@@ -47,6 +50,7 @@ ExpressionEngine has sophisticated typography tools—a writer’s dream!
 * Typographic Plugin Support
 
 h2. Tracking
+
 Keep track of what’s happening on your site including most viewed and commented posts.
 
 * Referrer Tracking
@@ -56,6 +60,7 @@ Keep track of what’s happening on your site including most viewed and commente
 * Search Term Log
 
 h2. Template Engine
+
 Our template engine permits you to build dynamic, content driven websites using simple, yet powerful, tags.
 
 * Full Page Modeling
@@ -72,6 +77,7 @@ Our template engine permits you to build dynamic, content driven websites using 
 * Template Notes
 
 h2. Communications
+
 ExpressionEngine lets you manage your mailing lists and send email in a variety of ways.
 
 * Multi-Protocol Support
@@ -81,6 +87,7 @@ ExpressionEngine lets you manage your mailing lists and send email in a variety 
 * Batch Processing
 
 h2. Search
+
 ExpressionEngine has a powerful search engine and query tools.
 
 * Search Engine
@@ -88,6 +95,7 @@ ExpressionEngine has a powerful search engine and query tools.
 * IP Searching
 
 h2. Spam Deterrents
+
 No other publishing platform gives you as many tools to prevent comment and trackback spam as ExpressionEngine.
 
 * Blacklist
@@ -110,6 +118,7 @@ ExpressionEngine’s powerful utilities help you manage your site.
 * PHP Info
 
 h2. Add-Ons
+
 ExpressionEngine comes with 22 add-on modules and over 100 plugins.
 
 * Discussion Forum
@@ -130,6 +139,7 @@ ExpressionEngine comes with 22 add-on modules and over 100 plugins.
 * Query
 
 h2. Member Management
+
 Build a community with ExpressionEngine’s robust and flexible membership capability.
 
 * Multi-User System
@@ -145,6 +155,7 @@ Build a community with ExpressionEngine’s robust and flexible membership capab
 * Note Pad
 
 h2. Data Caching
+
 ExpressionEngine’s data caching features allow you to reduce your server load while retaining all the benefits of dynamically generated information.
 
 * Template Caching
@@ -152,6 +163,7 @@ ExpressionEngine’s data caching features allow you to reduce your server load 
 * Tag Caching
 
 h2. Security
+
 ExpressionEngine has the most comprehensive suite of security features of any publishing platform on the market.
 
 * Session Management
