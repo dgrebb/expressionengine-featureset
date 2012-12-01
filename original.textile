@@ -1,5 +1,7 @@
 
-h2. Web Publishing
+This was the featureset as shown on expressionengine.com until Nov 25, 2012. For reference.
+
+h2. Web Publishing 
 
 ExpressionEngine’s publishing features are broad, comprehensive, and highly flexible.
 
