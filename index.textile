@@ -1,2 +1,25 @@
-h1. About
+h1. About This Document
+Since we've lost the features page of the ExpressionEngine website, lets crowd source our own. If we all take a little time to contribute to listing and describing features, we'll all end up with a fantastic descriptive featueset that we can use to sell to clients. So, fork away. Please keep commentary out of this. It is meant to be factual in nature.
 
+h2. ExpressionEngine Main Description
+ExpressionEngine is a content management system written by Ellislab in PHP. It is built on the open source CodeIgniter framework, and uses a MySQL database to store data. It is a commercial product that is downloaded and installed on a web server, then configured to store and serve content according to the needs of the website it is being used on. It is regarded to be extremely flexible and is design and content agnostic. It features a strong set of core functionality and has a plugin architecture, allowing developers to install third-party add-ons to provide additional functionality. It is not a plug and play CMS, most website owners will need to hire a consultant to architect and build an ExpressionEngine system for them to use on their website.
+
+h3. Technical Requirements
+
+h3. General System Architecture (Channels & Entries)
+
+h4. Channels
+
+h4. Entries
+
+h4. Categories
+
+h4. Statuses
+
+h3. Template Engine
+
+h3. File Handling
+
+h3. Add-Ons
+
+h3. Member Management
