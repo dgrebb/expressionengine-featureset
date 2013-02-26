@@ -2,13 +2,15 @@ h1. About This Document
 
 Since we've lost the features page of the ExpressionEngine website, lets crowd source our own. If we all take a little time to contribute to listing and describing features, we'll all end up with a fantastic descriptive featueset that we can use to sell to clients. So, fork away. Please keep commentary out of this. It is meant to be factual in nature.
 
-h2. ExpressionEngine Main Description
+h2. Overview
+
+h3. Description
 
 ExpressionEngine is a content management system written by Ellislab in PHP. It is built on the open source CodeIgniter framework, and uses a MySQL database to store data. It is a commercial product that is downloaded and installed on a web server, then configured to store and serve content according to the needs of the website it is being used on. It is regarded to be extremely flexible and is design and content agnostic. It features a strong set of core functionality and has a plugin architecture, allowing developers to install third-party add-ons to provide additional functionality. It is not a plug and play CMS, most website owners will need to hire a consultant to architect and build an ExpressionEngine system for them to use on their website.
 
 h3. Technical Requirements
 
-h4. As of ExpressionEngine version 2.5.3
+h4. As of ExpressionEngine version 2.5.5
 
 * PHP version 5.1.6 or newer
 * MySQL version 4.1 or newer
@@ -26,19 +28,112 @@ h4. As of ExpressionEngine version 2.5.3
 * 2 MB of Database space. Note: The database will increase in size as you add new content.
 * The GD (or GD 2) library compiled into PHP.
 
+ExpressionEngine can be installed on an Apache or Windows server, though it is generally regarded as most performant in an Apache environment.
+
+h4. Security
+
+ExpressionEngine has a fantastic security record. As a CMS that has existed for over a decade, its never had a major security issue. Minor issues have cropped up from time to time, but have always been patched quickly and without incident to any live sites to the best of Ellislab and the community's knowledge.
+
+h4. Performance
+
+ExpressionEngine is like any database-based application in that its performance will never be as fast as raw HTML files when loaded in a browser. ExpressionEngine provides built-in debugging and performance monitoring tools to allow developers to keep an eye on load times and resource demands, and its flexible architecture generally allows several methods to accomplish the same task- so a function that may be causing a performance degradation could potentially be replaced by another similar function that is more performant, to acheive the same results.
+
+ExpressionEngine has a built in page caching system, and several 3rd-party Add-ons with more caching methods are available. While caching shouldn't be used to fix performance problems, it can be a useful tool to speed up slow sites and make fast sites even faster.
+
+Website performance is always a combination of network, server, application, page-level resources and code. Experienced developers optimize in all these areas so a site will perform well. ExpressionEngine in itself doesn't perform any better or worse than other CMS'. A well-architected system and well-optimized code and resources, hosted with a reputable hosting company will perform well.
+
 h3. General System Architecture
+
+h4. Blank Slate
+
+Out of the box, ExpressionEngine is a blank slate. There is no configuration, HTML templates, or content in place after installation. It is the responsibility of the developer to configure and build the system in a manner that is appropriate for the site being created. Each installation is custom built to accommodate the design created for the site, and the content generated for the site.
+
+h5. Content Agnostic
+
+While some CMS' start with the concept of "pages" or a "blog" out of the box, ExpressionEngine starts with nothing. This allows the developer to specify what channels of content will be included in the site, and for each channel, what fields of data are necessary to store the content for the site. ExpressionEngine's Fieldtype architecture has allowed for hundreds of custom content field types to be developed that can be installed, providing the ability to specify fields that are very specifically tailored to the type of content required.
+
+h5. Design Agnostic
+
+While some CMS' start with a "template" or "skin" out of the box, ExpressionEngine starts with nothing. This allows the developer to use their own HTML, CSS and Javascript code on the site, so they have complete control over the presentation layer of the website. ExpressionEngine tags are then placed into the HTML templates to "call" for content from ExpressionEngine. Based on the tag and its parameters, ExpressionEngine will replace the tag with content in the rendered template in the user's web brwoser. ExpressionEngine writes almost no HTML via its tags- simply returning content that the developer can wrap with HTML to achieve the desired look.
 
 h4. Channels
 
+The core building block of content within ExpressionEngine is Channels. A channel is a type of content. An ExpressionEngine site can have unlimited channels. Think of a typical small business website. It would possibly contain these channels: News, Blog, Articles, Events, Staff Bios, Products, Services. Each Channel contains one or more Entries.
+
 h4. Entries
 
-h4. Categories
+Entries are actual content within ExpressionEngine. If you have a Channel called Articles, each single article within the channel is an Entry. Each Entry has three required fields of data associated with it: Title, URL Title and Entry Date. Any other pieces of content necessary to create a complete entry are added via Channel Field Groups. 
 
-h4. Statuses
+h4. Categories / Category Groups
+
+Categories are used within ExpressionEngine to associate Entries within a Channel to one or more Categories. This allows for filtering, searching and sorting based on the association (or non-association) of Entries with specific Categories. Most people have seen a typical Category implementation on a Wordpress or other common blog. ExpressionEngine allows Categories to be used in the same typical manner, but many developers also leverage Categories for other uses within a site. 
+
+Multiple Category Groups can be created in the system. A Channel can be associated with one or more Category Groups. This allows administrators to choose one or more Categories within one or more Category Groups for any single Entry within the system.
+
+channel:category tags within ExpressionEngine can be used to display Categories along with associated Entries and Category meta data.
+
+channel:entry tags within ExpressionEngine can include parameters that allow developers to show (or not show) Channel Entries from one or more specified Categories.
+
+h4. Statuses / Status Groups
+
+Statuses are used within ExpressionEngine to dictate the current Status of an Entry within a Channel. The default Statuses for any Status Group are Open and Closed (think of them as active/inactive or visible/invisible). Any number of Status Groups can be created within a site. One or more Channels can use the same Status Group. Within each Status Group, unlimited Custom Statuses can be created (ex: Draft, Featured, Deleted).
+
+Statuses can be leveraged for many creative uses in an ExpressionEngine site. By default, the channel:entries tag that shows all the Entries for a given Channel will only show Entries with an Open Status. This allows administrators to change an Entry's Status to Closed to temporarily or permanently remove it from the site. 
+
+Developers can override this so that both Open and Closed Statuses show within a specific channel:entries tag. Also, Developers can allow any custom Statuses to be shown within a specific channel:entries tag. (ex: status="Featured" will only show Entries with a Custom Status of Featured, which is an easy way to allow clients to choose which Entries in a Channel show up on the homepage or a landing page).
+
+h4. Field Groups
+
+Field Groups are groups of Custom Fields. A single field group can be associated with one or more Channels. Custom Fields can be created within a Field Group, and when associated with a Channel, the Entries created within that Channel will show the default required fields (Title, URL Title, Entry Date), some default optional fields (Expiration Date, etc.) and the Custom Fields within the associated Field Group. The combination of the default required fields, default optional fields, and custom fields makes up the full set of fields that an administrator can fill out to create the Entry within the Channel.
+
+h4. Custom Fields
+
+Within each Field Group a developer can create unlimited Custom Fields. This allows each Channel to have its own group of Custom Fields that administrators fill out when creating an Entry in a Channel. Whereas in some CMS', a blog entry has the same fields as an article entry and a news entry, in an ExpressionEngine site, each of those three Channels can have their own Custom Fields to suit the needs of the content of the site.
+
+Custom Fields can be titled any way the developer likes, and can be "short named" any way the developer likes. The Short Name is the way the field is "called" within the template code where the developer wishes content from that Custom Field to be placed in the template. Custom Fields can also be required (or not), searchable (or not), and have various other attributes, all configurable on a Field by Field basis.
+
+Perhaps the most powerful aspect of Custom Fields are that a developer can install custom Fieldtypes. Any custom field can be one of the default ExpressionEngine Fieldtypes, or any installed custom Fieldtype. This allows every field to be well-suited to capture, contain and present exactly the type of content it is intended to store.
 
 h3. Template Engine
 
+h4. URLs and Templates
+
+ExpressionEngine determines what content to display in the user's browser via the URL. In a standard ExpressionEngine site, a URL of www.domain.com/articles/view/my-article will display the "view" Template within the "articles" Template Group and it will call for the Entry within the Articles channel that has a URL Title of "my-article".
+
+h4. Template Groups
+
+ExpressionEngine allows developers to create unlimited Template Groups. Each Template Group contains at least one Template. By default an index Template is created when a new Template Group is created. This allows the Template Group to be referenced and displayed in a URL on its own, without a Template being referenced. So a URL of www.domain.com/articles will show the "index" Template within the "articles" Template Group. This would be identical to a URL ot www.domain.com/articles/index, but allows for a shorted, cleaner URL by not requiring the second segment in the URL (index).
+
+h4. Templates
+
+ExpressionEngine allows developers to created unlimited Templates, each of which must reside in a Template Group. Templates contain code including, but not limited to: HTML, CSS, Javascript, PHP, XML and most importantly, ExpressionEngine tags. The combination of all the code and the content delivered by the ExpressionEngine tags allows the Template Engine to deliver a fully rendered page using a developers custom front end code and the content entered into the Control Panel by an administrator.
+
+h5. URL Segments
+
+Above, we talked about a URL of www.domain.com/articles/view/my-article, which contains 3 segments:
+# articles
+# view
+# my-article
+
+In a standard ExpressionEngine site, these first 3 segments of the URL are always used to determine the Template Group, Template and Entry to display. ExpressionEngine allows up to 9 segments in the URL, and segments 4-9 can all be used to trigger other logic and content to be displayed to the user. 
+
+ExpressionEngine also has special trigger segments that allow for operation of useful functions such as pagination and category filters. Examples:
+* www.domain.com/articles/P10 will show entries 11-20 of a paginated list of articles
+* www.domain.com/articles/category/space will show entries in the Space category
+
+There are other default triggers, and many 3rd party Add-Ons allow custom triggers to enable even more functionality.
+
 h3. File Handling
+
+h4. File Manager
+
+ExpressionEngine has a file manager built in that allows developers to specify unlimited Upload Destinations. Developers can create a single Upload Destination for an entire site, or one for each Channel, or any other setup as needed for the site's content.
+
+The File Manager allows upload and delete, renaming, and simple image manipulation such as resize, crop and rotate.
+
+h4. File Fieldtype
+
+To accompany the File Manager, a custom Fieldtype is bundled with ExpressionEngine called File. This allows your administrators to upload files to any specified Upload Destination or choose existing files from any specified Uplaod Destination when creating or editing any Channel Entry. The File field allows live fiel name filtering while browsing files as well as list or thumbnail view.
 
 h3. Add-Ons
 
@@ -76,3 +171,17 @@ h4. Third-Party Add-Ons
 One of the most useful features of ExpressionEngine is its plugin architecture. By downloading an add-on created by another developer, or building one of his/her own, a developer can add new functionality to ExpressionEngine that is not present in the core product. There are over 1,000 add-ons catalogued and available for download at http://devot-ee.com. Most add-ons are free, and some are commercial in nature. The add-on community for ExpressionEngine is one of its greatest assets. New add-ons are built and added to Devot-ee weekly.
 
 h3. Member Management
+
+ExpressionEngine includes robust member management tools out of the box. This allows members to be added to the system for Control Panel-only access (usually content managers and administrators) or also the customer-facing site. Typical member functions are included:
+* Register
+* Login
+* Logout
+* Instant, email-based, or administrator-based account activation
+* Password recovery
+* Abuse banning
+
+ExpressionEngine allows for creation of unlimited Member Groups. Each group can have its own permissions for access to the Control Panel, sections and functions within the Control Panel, Wodule access and Channel access for adding and editing content. Administrators can assign Members to any Member Group and change a Member's Group at any time.
+
+Developers can control what sections of a Template and what functions are available to Members on the customer-facing site by evaluating a currently logged-in Member's username, member ID, Member Group, and other unique pieces of data. This allows developers to build sites that show or hide specific content to specific Member Groups. 
+
+Many additional member functions are available via 3rd-party Add-ons. 
